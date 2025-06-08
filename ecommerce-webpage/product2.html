@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Details - ShopNow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .product-detail-container {
+      width: 100%;
+      padding: 120px 40px 40px;
+      display: flex;
+      gap: 40px;
+    }
+
+    .product-detail-container img {
+      width: 700px;
+      height: 700px;
+      border-radius: 10px;
+    }
+
+    .product-detail-info {
+      max-width: 100%;
+    }
+
+    .product-detail-info h2 {
+      color: #f43397;
+      font-size: 28px;
+    }
+
+    .product-detail-info p {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .product-price {
+      font-size: 22px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .add-cart {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #f43397;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .add-cart:hover {
+      background: #d81b60;
+      transform: scale(1.05);
+    }
+    .buy-now{
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #de33f4;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .buy-now:hover {
+      background: #eb7de8;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <div><img src="../cartlogo.svg" height="30" width="30" alt=""> ShopNow</div>
+      <div><input type="text" class="search-bar" placeholder="Search products..." /></div>
+    </div>
+    <div class="navlink">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#product-section">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="product-detail-container">
+    <img id="product-image" src="/9657590.png" alt="Product Image" />
+    <div class="product-detail-info">
+      <h2 id="product-name">SoundMax Studio Wireless Headphones</h2><br>
+      <p class="product-price" id="product-price">₹3200.00</p>
+      <p id="product-desc"><br>Immerse yourself in sound with the all-new SoundMax Studio Wireless Headphones — designed for pure audio enjoyment, all-day comfort, and bold style. Whether you're working, gaming, or relaxing with music, these headphones provide deep bass, crisp vocals, and noise-isolating cushions for a focused experience.
+<br><br>
+🔧 Key Features: <br><br>
+Wireless Connectivity: Bluetooth 5.2 for fast, reliable connection up to 15 meters. <br><br>
+
+Studio-Level Sound: 40mm drivers deliver rich, balanced audio with punchy bass.<br><br>
+Battery Life: Up to 20 hours playtime on a single charge — ideal for commutes and long sessions.
+
+<br><br>
+Comfort Fit: Lightweight headband and memory foam ear cushions for fatigue-free use.
+
+<br><br>
+Built-in Mic: Crystal clear voice calls with noise reduction.
+
+<br><br>
+Foldable Design: Compact and travel-friendly with adjustable hinges.
+
+<br><br>
+3.5mm Jack Support: Comes with detachable AUX cable for wired mode.
+
+      <p><strong><br>Seller:</strong> <span id="product-seller">xyz Pvt.ltd</span></p>
+      <div style="display: flex; gap: 10px;">
+         <button class="add-cart">Add to Cart</button>
+         <button class="buy-now">Buy Now</button>
+      </div>
+    </div>
+  </main>
+
+
+</body>
+<script>
+  document.querySelector('.add-cart').addEventListener('click', () => {
+    const product = {
+      name: document.getElementById("product-name").innerText,
+      price: document.getElementById("product-price").innerText.replace("₹", ""),
+      seller: document.getElementById("product-seller").innerText,
+      image: document.getElementById("product-image").getAttribute("src")
+    };
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("Product added to cart!");
+    window.location.href = "cart.html"; // Optional: go to cart after clicking
+  });
+
+  document.querySelector('.buy-now').addEventListener('click', () => {
+    alert(" Sorry! Buy Now option is not available at the moment.");
+  });
+</script>
+</html>

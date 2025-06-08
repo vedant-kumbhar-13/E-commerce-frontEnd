@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Details - ShopNow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .product-detail-container {
+      width: 100%;
+      padding: 120px 40px 40px;
+      display: flex;
+      gap: 40px;
+    }
+
+    .product-detail-container img {
+      width: 700px;
+      height: 700px;
+      border-radius: 10px;
+    }
+
+    .product-detail-info {
+      max-width: 100%;
+    }
+
+    .product-detail-info h2 {
+      color: #f43397;
+      font-size: 28px;
+    }
+
+    .product-detail-info p {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .product-price {
+      font-size: 22px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .add-cart {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #f43397;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .add-cart:hover {
+      background: #d81b60;
+      transform: scale(1.05);
+    }
+    .buy-now{
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #de33f4;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .buy-now:hover {
+      background: #eb7de8;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <div><img src="../cartlogo.svg" height="30" width="30" alt=""> ShopNow</div>
+      <div><input type="text" class="search-bar" placeholder="Search products..." /></div>
+    </div>
+    <div class="navlink">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#product-section">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="product-detail-container">
+    <img id="product-image" src="/9662746.png" alt="Product Image" />
+    <div class="product-detail-info">
+      <h2 id="product-name">BassBlaze X900 Over-Ear Wireless Headphones</h2><br>
+      <p class="product-price" id="product-price">₹2700.00</p>
+      <p id="product-desc"><br>Elevate your audio experience with the BassBlaze X900, a premium over-ear wireless headphone designed for immersive sound and powerful bass. Crafted with comfort and performance in mind, the X900 is ideal for long listening sessions, professional work, or pure musical escape. Its stylish matte-black finish and padded ear cushions make it a perfect blend of fashion and function.
+<br><br>
+🔧 Key Features: <br><br>
+Deep Bass Technology: 50mm drivers deliver booming bass and crisp highs.
+
+ <br><br>
+
+Bluetooth 5.3: Ultra-fast, stable connection with 10m range.
+
+<br><br>
+Extended Battery Life: Up to 25 hours on a single charge.
+
+<br><br>
+Dual Mode: Use wirelessly or with the included 3.5mm AUX cable.
+
+<br><br>
+Noise Isolation: Over-ear design blocks out ambient noise for distraction-free listening.
+
+<br><br>
+Built-In Mic: For seamless voice calls and voice assistant access.
+
+<br><br>
+Foldable Design: Compact, durable and travel-ready.
+
+      <p><strong><br>Seller:</strong> <span id="product-seller">xyz Pvt.ltd</span></p>
+      <div style="display: flex; gap: 10px;">
+         <button class="add-cart">Add to Cart</button>
+         <button class="buy-now">Buy Now</button>
+      </div>
+    </div>
+  </main>
+
+<script>
+  document.querySelector('.add-cart').addEventListener('click', () => {
+    const product = {
+      name: document.getElementById("product-name").innerText,
+      price: document.getElementById("product-price").innerText.replace("₹", ""),
+      seller: document.getElementById("product-seller").innerText,
+      image: document.getElementById("product-image").getAttribute("src")
+    };
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("Product added to cart!");
+    window.location.href = "cart.html"; // Optional: go to cart after clicking
+  });
+
+  document.querySelector('.buy-now').addEventListener('click', () => {
+    alert(" Sorry! Buy Now option is not available at the moment.");
+  });
+</script>
+</body>
+</html>

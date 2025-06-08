@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - ShopNow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #fdfcfe;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background: rgb(246, 211, 228);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 1 8px 24px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .login-box:hover {
+      background-color: #f4ebee;
+      transform: scale(1.05);
+    }
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #f43397;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      
+    }
+    .login-box input:hover {
+      transform: scale(1.05);
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background-color: #f43397;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .login-box button:hover {
+      background-color: #d81b60;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login to ShopNow</h2>
+    <form onsubmit="return handleLogin(event)">
+      <input type="text" id="username" placeholder="Enter Username" required />
+      <input type="password" id="password" placeholder="Enter Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <div class="footer">Don't have an account? Sign up coming soon.</div>
+  </div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      // Simulated credentials (you can update or validate using real backend later)
+      if (username === "vedant" && password === "pass") {
+        alert("You are logged in!");
+        window.location.href = "index.html"; // Redirect to homepage
+      } else {
+        alert("Invalid username or password.");
+      }
+
+      return false;
+    }
+  </script>
+</body>
+</html>
